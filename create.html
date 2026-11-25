@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Create Your Love Story ❤️</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 20px;
+  background: #170d18;
+  color: white;
+  font-family: Georgia, serif;
+}
+
+.container {
+  max-width: 500px;
+  margin: 30px auto;
+  padding: 25px;
+  background: #2c1b2c;
+  border: 1px solid #75445f;
+  border-radius: 20px;
+}
+
+h1 {
+  color: #ffb4c8;
+  text-align: center;
+}
+
+p {
+  text-align: center;
+  color: #e8cbd9;
+}
+
+label {
+  display: block;
+  margin-top: 18px;
+  color: #ffb4c8;
+}
+
+input, textarea {
+  width: 100%;
+  margin-top: 8px;
+  padding: 13px;
+  border: 1px solid #75445f;
+  border-radius: 10px;
+  background: #170d18;
+  color: white;
+  font-size: 16px;
+}
+
+textarea {
+  min-height: 100px;
+}
+
+button {
+  width: 100%;
+  margin-top: 22px;
+  padding: 15px;
+  border: none;
+  border-radius: 30px;
+  background: #df6390;
+  color: white;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+#preview {
+  margin-top: 25px;
+  text-align: center;
+  display: none;
+}
+
+#photos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-top: 15px;
+}
+
+#photos img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.back {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  color: #ffb4c8;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>❤️ Our Love Story</h1>
+<p>Create a beautiful world of your memories.</p>
+
+<form id="loveForm">
+
+<label>Your Name</label>
+<input type="text" id="yourName"
+placeholder="Enter your name" required>
+
+<label>Your Partner's Name</label>
+<input type="text" id="partnerName"
+placeholder="Enter partner's name" required>
+
+<label>Your Special Date</label>
+<input type="date" id="specialDate" required>
+
+<label>Your Love Message</label>
+<textarea id="message"
+placeholder="Write something special..." required></textarea>
+
+<label>Upload Your Memories</label>
+<input type="file" id="memoryPhotos"
+accept="image/*" multiple>
+
+<button type="submit">
+Create My Love Story ❤️
+</button>
+
+</form>
+
+<div id="preview">
+<h2 style="color:#ffb4c8">Your Love Story 💕</h2>
+<h3 id="names"></h3>
+<p id="dateText"></p>
+<p id="messageText"></p>
+<div id="photos"></div>
+</div>
+
+<a class="back" href="index.html">← Back to Home</a>
+
+</div>
+
+<script>
+document.getElementById("loveForm")
+.addEventListener("submit", function(e) {
+
+e.preventDefault();
+
+const yourName =
+document.getElementById("yourName").value;
+
+const partnerName =
+document.getElementById("partnerName").value;
+
+const date =
+document.getElementById("specialDate").value;
+
+const message =
+document.getElementById("message").value;
+
+document.getElementById("names").textContent =
+yourName + " ❤️ " + partnerName;
+
+document.getElementById("dateText").textContent =
+"Our Special Date: " + date;
+
+document.getElementById("messageText").textContent =
+message;
+
+const files =
+document.getElementById("memoryPhotos").files;
+
+const photos = document.getElementById("photos");
+photos.replaceChildren();
+
+Array.from(files).forEach(file => {
+if (!file.type.startsWith("image/")) return;
+
+const img = document.createElement("img");
+const url = URL.createObjectURL(file);
+img.src = url;
+photos.appendChild(img);
+});
+
+document.getElementById("preview").style.display = "block";
+
+document.getElementById("preview")
+.scrollIntoView({behavior:"smooth"});
+
+});
+</script>
+
+</body>
+</html>
