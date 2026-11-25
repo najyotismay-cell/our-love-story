@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Love Story ❤️</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Georgia, serif;
+  background: #170d18;
+  color: white;
+}
+
+nav {
+  padding: 22px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #493044;
+}
+
+.logo {
+  color: #ffb4c8;
+  font-size: 23px;
+  font-weight: bold;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+.hero {
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 35px 20px;
+  background:
+    linear-gradient(#170d18aa, #170d18ee),
+    url("https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=1400");
+  background-size: cover;
+  background-position: center;
+}
+
+.content {
+  max-width: 650px;
+}
+
+.heart {
+  font-size: 55px;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: clamp(40px, 9vw, 65px);
+  color: #ffb4c8;
+  margin-bottom: 20px;
+}
+
+p {
+  color: #eadce5;
+  line-height: 1.7;
+  font-size: 17px;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 15px 30px;
+  border-radius: 30px;
+  background: #d95b87;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #f078a0;
+}
+
+.features {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.features h2 {
+  color: #ffb4c8;
+  font-size: 32px;
+  margin-bottom: 35px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  max-width: 950px;
+  margin: auto;
+}
+
+.card {
+  background: #2c1b2c;
+  padding: 30px 20px;
+  border-radius: 18px;
+  border: 1px solid #57364f;
+}
+
+.card h3 {
+  color: #ffb4c8;
+  margin: 15px 0;
+}
+
+.card span {
+  font-size: 35px;
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  color: #c5aaba;
+  border-top: 1px solid #493044;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">Our Love Story ❤️</div>
+  <a href="#features">Explore</a>
+</nav>
+
+<section class="hero">
+  <div class="content">
+    <div class="heart">❤️</div>
+    <h1>Every Love Has a Story</h1>
+    <p>
+      Create a beautiful virtual world filled with
+      your favourite memories, photographs and
+      special moments.
+    </p>
+    <a href="#features" class="btn">
+      Create Your Love Story ✨
+    </a>
+  </div>
+</section>
+
+<section class="features" id="features">
+  <h2>Your Memories, Your World</h2>
+
+  <div class="cards">
+    <div class="card">
+      <span>🏛️</span>
+      <h3>3D Love Museum</h3>
+      <p>Explore your own romantic virtual museum.</p>
+    </div>
+
+    <div class="card">
+      <span>📸</span>
+      <h3>Beautiful Memories</h3>
+      <p>Keep your favourite photographs together.</p>
+    </div>
+
+    <div class="card">
+      <span>💌</span>
+      <h3>Love Messages</h3>
+      <p>Write personal messages for someone special.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Made with ❤️ by Our Love Story
+</footer>
+
+</body>
+</html>
