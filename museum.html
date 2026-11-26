@@ -173,4 +173,88 @@ img.onclick = function() {
 
 </body>
 </html>
+
+<section style="padding:25px 10px;text-align:center;">
+  <h2>❤️ Our 3D Memory Room</h2>
+  <p>Explore our beautiful memories together</p>
+  <div id="loveRoom" style="width:100%;height:450px;border-radius:18px;overflow:hidden;background:#160d25;"></div>
+</section>
+
+<script type="module">
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
+import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/controls/OrbitControls.js';
+
+const container = document.getElementById('loveRoom');
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x160d25);
+
+const camera = new THREE.PerspectiveCamera(65, container.clientWidth/450, 0.1, 100);
+camera.position.set(0, 2, 7);
+
+const renderer = new THREE.WebGLRenderer({antialias:true});
+renderer.setSize(container.clientWidth, 450);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+container.appendChild(renderer.domElement);
+
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.target.set(0, 1.5, 0);
+
+scene.add(new THREE.AmbientLight(0xffffff, 2));
+
+const light = new THREE.PointLight(0xff66bb, 30, 20);
+light.position.set(0, 4, 2);
+scene.add(light);
+
+function wall(w,h,d,x,y,z,color) {
+ const mesh = new THREE.Mesh(
+  new THREE.BoxGeometry(w,h,d),
+  new THREE.MeshStandardMaterial({color})
+ );
+ mesh.position.set(x,y,z);
+ scene.add(mesh);
+}
+
+wall(12,7,0.3,0,3,-4,0x45234f);
+wall(12,0.3,9,0,-0.2,0,0x24152f);
+wall(0.3,7,9,-6,3,0,0x30183b);
+wall(0.3,7,9,6,3,0,0x30183b);
+
+const photos = document.querySelectorAll('.gallery img');
+const loader = new THREE.TextureLoader();
+
+photos.forEach((photo,i)=>{
+ const x = (i % 4 - 1.5) * 2.5;
+ const y = 2.5 + Math.floor(i/4)*1.8;
+
+ const frame = new THREE.Mesh(
+  new THREE.BoxGeometry(1.65,1.35,0.15),
+  new THREE.MeshStandardMaterial({color:0xffd1a8})
+ );
+ frame.position.set(x,y,-3.75);
+ scene.add(frame);
+
+ const texture = loader.load(photo.src);
+ const picture = new THREE.Mesh(
+  new THREE.PlaneGeometry(1.45,1.15),
+  new THREE.MeshBasicMaterial({map:texture})
+ );
+ picture.position.set(x,y,-3.65);
+ scene.add(picture);
+});
+
+function animate(){
+ requestAnimationFrame(animate);
+ controls.update();
+ renderer.render(scene,camera);
+}
+animate();
+
+window.addEventListener('resize',()=>{
+ camera.aspect = container.clientWidth/450;
+ camera.updateProjectionMatrix();
+ renderer.setSize(container.clientWidth,450);
+});
+                   </script>
+
 </body>
