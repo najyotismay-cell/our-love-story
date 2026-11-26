@@ -171,15 +171,19 @@ img.onclick = function() {
 });
 </script>
 
-</body>
-</html>
-
 <section style="padding:25px 10px;text-align:center;">
   <h2>❤️ Our 3D Memory Room</h2>
   <p>Explore our beautiful memories together</p>
   <div id="loveRoom" style="width:100%;height:450px;border-radius:18px;overflow:hidden;background:#160d25;"></div>
 </section>
 
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"
+  }
+}
+</script>
 <script type="module">
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
 import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/controls/OrbitControls.js';
@@ -258,3 +262,4 @@ window.addEventListener('resize',()=>{
                    </script>
 
 </body>
+</html>
