@@ -159,6 +159,10 @@ input.addEventListener("change",function(){
   const img=document.createElement("img");
   img.src=URL.createObjectURL(file);
   img.alt="Your memory";
+  img.style.cursor = "pointer";
+img.onclick = function() {
+    window.open(this.src, "_blank");
+};
   const caption=document.createElement("p");
   caption.textContent="Our Special Memory ❤️";
   frame.append(img,caption);
