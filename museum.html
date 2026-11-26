@@ -232,7 +232,7 @@ photos.forEach((photo,i)=>{
  const y = 2.5 + Math.floor(i/4)*1.8;
 
  const frame = new THREE.Mesh(
-  new THREE.BoxGeometry(1.65,1.35,0.15),
+  new THREE.BoxGeometry(2.2,1.8,0.15)
   new THREE.MeshStandardMaterial({color:0xffd1a8})
  );
  frame.position.set(x,y,-3.75);
@@ -240,7 +240,7 @@ photos.forEach((photo,i)=>{
 
  const texture = loader.load(photo.src);
  const picture = new THREE.Mesh(
-  new THREE.PlaneGeometry(1.45,1.15),
+  new THREE.PlaneGeometry(2.0,1.55)
   new THREE.MeshBasicMaterial({map:texture})
  );
  picture.position.set(x,y,-3.65);
